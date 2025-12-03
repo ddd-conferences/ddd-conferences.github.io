@@ -6,6 +6,8 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ddd-conferences.github.io';
+
 export const metadata: Metadata = {
   title: 'DDD (Developer Developer Developer) Conferences | UK Developer Events',
   description: 'Discover DDD (Developer Developer Developer) conferences across the UK. Connect with fellow developers, find upcoming events, accommodation, and join our communities. Free community-driven developer conferences.',
@@ -16,11 +18,11 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.svg',
   },
-  metadataBase: new URL('https://ddd-conferences.github.io'),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: 'DDD (Developer Developer Developer) Conferences',
     description: 'Discover DDD conferences across the UK. Free community-driven developer events connecting developers nationwide.',
-    url: 'https://ddd-conferences.github.io',
+    url: siteUrl,
     siteName: 'DDD Conferences',
     locale: 'en_GB',
     type: 'website',

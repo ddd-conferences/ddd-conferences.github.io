@@ -51,6 +51,8 @@ jobs:
         run: pnpm install
 
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_SITE_URL: https://ddd-conferences.github.io
         run: pnpm build
 
       - name: Upload artifact
