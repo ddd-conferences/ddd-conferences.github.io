@@ -129,7 +129,7 @@ export function ConferenceMap({ conferences }: ConferenceMapProps) {
           </div>
 
           {/* Conference List */}
-          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border max-w-xs z-[1000]">
+          <div className="hidden md:block absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border max-w-xs z-[1000]">
             <h3 className="font-semibold text-gray-900 mb-3 text-sm">Active Conferences</h3>
             <div className="space-y-2 max-h-[500px] overflow-y-auto">
               {conferences.map((conference) => {
