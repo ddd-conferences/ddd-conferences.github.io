@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { getCloudinaryUrl } from "@/lib/cloudinary-loader";
 import {
   MapPin,
   Calendar,
@@ -197,7 +198,7 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0 relative w-20 h-16">
                       <Image
-                        src={hotel.image || "/placeholder.svg"}
+                        src={getCloudinaryUrl(hotel.image || "/placeholder.svg")}
                         alt={hotel.name}
                         fill
                         sizes="80px"

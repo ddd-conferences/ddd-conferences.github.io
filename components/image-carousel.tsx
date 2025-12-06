@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { getCloudinaryUrl } from "@/lib/cloudinary-loader"
 
 interface ImageCarouselProps {
   images: string[]
@@ -66,7 +67,7 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
         onTouchEnd={handleTouchEnd}
       >
         <Image
-          src={images[currentIndex] || "/placeholder.svg"}
+          src={getCloudinaryUrl(images[currentIndex] || "/placeholder.svg")}
           alt={`${alt} - Image ${currentIndex + 1}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"

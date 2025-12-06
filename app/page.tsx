@@ -12,10 +12,10 @@ const conferences = [
     website: "https://www.dddnorth.co.uk/",
     coordinates: { lat: 53.771680, lng: -0.368120 },
     images: [
-      "/images/ddd-north-1.jpg",
-      "/images/ddd-north-2.jpg",
-      "/images/ddd-north-3.jpg",
-      "/images/ddd-north-4.jpg",
+      "ddd-conferences/ddd-north-1.jpg",
+      "ddd-conferences/ddd-north-2.jpg",
+      "ddd-conferences/ddd-north-3.jpg",
+      "ddd-conferences/ddd-north-4.jpg",
     ],
     social: [
       {
@@ -67,12 +67,12 @@ const conferences = [
     website: "https://dddsouthwest.com/",
     coordinates: { lat: 51.448845, lng: -2.583569 },
     images: [
-      "/images/ddd-southwest-1.jpg",
-      "/images/ddd-southwest-2.jpg",
-      "/images/ddd-southwest-3.jpg",
-      "/images/ddd-southwest-4.jpg",
-      "/images/ddd-southwest-5.jpg",
-      "/images/ddd-southwest-6.jpg",
+      "ddd-conferences/ddd-southwest-1.jpg",
+      "ddd-conferences/ddd-southwest-2.jpg",
+      "ddd-conferences/ddd-southwest-3.jpg",
+      "ddd-conferences/ddd-southwest-4.jpg",
+      "ddd-conferences/ddd-southwest-5.jpg",
+      "ddd-conferences/ddd-southwest-6.jpg",
     ],
     social: [
       {
@@ -119,11 +119,11 @@ const conferences = [
     website: "https://dddeastmidlands.com/",
     coordinates: { lat: 52.956862, lng: -1.152904 },
     images: [
-      "/images/ddd-eastmidlands-1.jpg",
-      "/images/ddd-eastmidlands-2.jpg",
-      "/images/ddd-eastmidlands-3.jpg",
-      "/images/ddd-eastmidlands-4.jpg",
-      "/images/ddd-eastmidlands-5.jpg",
+      "ddd-conferences/ddd-eastmidlands-1.jpg",
+      "ddd-conferences/ddd-eastmidlands-2.jpg",
+      "ddd-conferences/ddd-eastmidlands-3.jpg",
+      "ddd-conferences/ddd-eastmidlands-4.jpg",
+      "ddd-conferences/ddd-eastmidlands-5.jpg",
     ],
     social: [
       {
@@ -153,10 +153,10 @@ const conferences = [
     website: "https://dddeastmidlands.com/",
     coordinates: { lat: 52.188142, lng: 0.136258 },
     images: [
-      "/images/ddd-eastanglia-1.jpg",
-      "/images/ddd-eastanglia-2.jpg",
-      "/images/ddd-eastanglia-3.jpg",
-      "/images/ddd-eastanglia-4.jpg",
+      "ddd-conferences/ddd-eastanglia-1.jpg",
+      "ddd-conferences/ddd-eastanglia-2.jpg",
+      "ddd-conferences/ddd-eastanglia-3.jpg",
+      "ddd-conferences/ddd-eastanglia-4.jpg",
     ],
     social: [
       {
