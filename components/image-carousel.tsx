@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -12,6 +12,8 @@ interface ImageCarouselProps {
 
 export function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+  const touchEndX = useRef<number | null>(null)
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))
@@ -25,10 +27,44 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
     setCurrentIndex(index)
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return
+
+    const swipeDistance = touchStartX.current - touchEndX.current
+    const minSwipeDistance = 50 // Minimum distance for a swipe to register
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swiped left - go to next
+        goToNext()
+      } else {
+        // Swiped right - go to previous
+        goToPrevious()
+      }
+    }
+
+    // Reset values
+    touchStartX.current = null
+    touchEndX.current = null
+  }
+
   return (
     <div className="relative group">
       {/* Main Image */}
-      <div className="relative h-64 overflow-hidden">
+      <div 
+        className="relative h-64 overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <Image
           src={images[currentIndex] || "/placeholder.svg"}
           alt={`${alt} - Image ${currentIndex + 1}`}
