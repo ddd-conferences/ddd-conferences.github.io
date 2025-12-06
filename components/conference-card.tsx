@@ -203,8 +203,8 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between">
-                        <div>
-                          <h4 className="font-medium text-gray-900 truncate">
+                        <div className="flex-1 min-w-0 pr-2">
+                          <h4 className="font-medium text-gray-900 break-words">
                             {hotel.name}
                           </h4>
                           {hotel.rating > 0 && (
