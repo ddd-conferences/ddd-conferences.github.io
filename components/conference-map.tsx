@@ -114,18 +114,20 @@ export function ConferenceMap({ conferences }: ConferenceMapProps) {
           <div ref={mapContainerRef} className="h-96 md:h-[600px] w-full z-0" />
 
           {/* Legend */}
-          <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl border z-[1000]">
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 bg-green-600 rounded-full"></div>
-                <span className="text-sm font-semibold text-gray-800">Scheduled</span>
+          <div className="absolute bottom-4 left-4 right-4 md:right-auto bg-white/95 backdrop-blur-sm rounded-lg p-3 md:p-4 shadow-xl border z-[1000]">
+            <div className="flex items-center justify-between md:flex-col md:items-start md:space-y-2">
+              <div className="flex items-center space-x-3 md:space-x-2">
+                <div className="flex items-center space-x-1.5">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-green-600 rounded-full"></div>
+                  <span className="text-xs md:text-sm font-semibold text-gray-800">Scheduled</span>
+                </div>
+                <div className="flex items-center space-x-1.5">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-amber-500 rounded-full"></div>
+                  <span className="text-xs md:text-sm font-semibold text-gray-800">TBA</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 bg-amber-500 rounded-full"></div>
-                <span className="text-sm font-semibold text-gray-800">TBA</span>
-              </div>
+              <div className="text-xs text-gray-600 md:mt-2">Click markers for detail</div>
             </div>
-            <div className="text-xs text-gray-600 mt-2">Click markers for details</div>
           </div>
 
           {/* Conference List */}
