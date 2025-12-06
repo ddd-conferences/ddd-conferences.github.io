@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -28,10 +29,13 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
     <div className="relative group">
       {/* Main Image */}
       <div className="relative h-64 overflow-hidden">
-        <img
+        <Image
           src={images[currentIndex] || "/placeholder.svg"}
           alt={`${alt} - Image ${currentIndex + 1}`}
-          className="w-full h-full object-cover transition-opacity duration-300"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition-opacity duration-300"
+          priority={currentIndex === 0}
         />
 
         {/* Navigation Arrows */}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -55,7 +56,7 @@ const getSocialIcon = (platform: string) => {
     return <Linkedin className="h-4 w-4" />;
   } else if (platformLower.includes("bluesky")) {
     return (
-      <img src="/icons/bluesky-icon.svg" alt="Bluesky" className="h-4 w-4" />
+      <Image src="/icons/bluesky-icon.svg" alt="Bluesky" width={16} height={16} className="h-4 w-4" />
     );
   }
   return <ExternalLink className="h-4 w-4" />;
@@ -194,11 +195,13 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                   }`}
                 >
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <img
+                    <div className="flex-shrink-0 relative w-20 h-16">
+                      <Image
                         src={hotel.image || "/placeholder.svg"}
                         alt={hotel.name}
-                        className="w-20 h-16 object-cover rounded-lg"
+                        fill
+                        sizes="80px"
+                        className="object-cover rounded-lg"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
