@@ -2,6 +2,12 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { getCloudinaryUrl } from "@/lib/cloudinary-loader";
 import {
   MapPin,
@@ -130,13 +136,17 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
 
         {/* Social Media Links */}
         {conference.social && conference.social.length > 0 && (
-          <div>
-            <div className="flex items-center mb-3">
-              <span className="text-2xl mr-3">📱</span>
-              <h3 className="text-xl font-semibold text-gray-900">Socials</h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {conference.social.map((social, index) => (
+          <Accordion type="single" collapsible className="w-full" defaultValue="socials">
+            <AccordionItem value="socials">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">📱</span>
+                  <h3 className="text-xl font-semibold text-gray-900">Socials</h3>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {conference.social.map((social, index) => (
                 <Button
                   key={index}
                   asChild
@@ -159,21 +169,27 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                   </a>
                 </Button>
               ))}
-            </div>
-          </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         )}
 
         {/* Hotels Section */}
         {conference.hotels && conference.hotels.length > 0 && (
-          <div>
-            <div className="flex items-center mb-4">
-              <span className="text-2xl mr-3">🏨</span>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Recommended Hotels
-              </h3>
-            </div>
-            <div className="grid gap-4">
-              {conference.hotels.map((hotel, index) => (
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="hotels">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">🏨</span>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Recommended Hotels
+                  </h3>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid gap-4 pt-2">
+                  {conference.hotels.map((hotel, index) => (
                 <a
                   key={index}
                   href={
@@ -254,21 +270,27 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                   </div>
                 </a>
               ))}
-            </div>
-          </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         )}
 
         {/* After Parties Section */}
         {conference.afterParties && conference.afterParties.length > 0 && (
-          <div>
-            <div className="flex items-center mb-4">
-              <span className="text-2xl mr-3">🎉</span>
-              <h3 className="text-xl font-semibold text-gray-900">
-                After Parties
-              </h3>
-            </div>
-            <div className="grid gap-4">
-              {conference.afterParties.map((party, index) => (
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="after-parties">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center">
+                  <span className="text-2xl mr-3">🎉</span>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    After Parties
+                  </h3>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid gap-4 pt-2">
+                  {conference.afterParties.map((party, index) => (
                 <div
                   key={index}
                   className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-100"
@@ -317,8 +339,10 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                   </Button>
                 </div>
               ))}
-            </div>
-          </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         )}
       </CardContent>
     </Card>
