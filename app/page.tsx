@@ -57,6 +57,16 @@ const conferences = [
         rating: 4.1,
       },
     ],
+    afterParties: [
+      {
+        name: "DDD North 2026 Geek Dinner",
+        description: "Join us for a fantastic evening of food, drinks, and networking with fellow developers at PizzaExpress. This is a great opportunity to continue conversations from the conference in a relaxed setting.",
+        location: "PizzaExpress, Hull",
+        time: "Feb 28, 19:00 GMT",
+        ticketUrl: "https://www.eventbrite.com/e/ddd-north-2026-geek-dinner-tickets-1978464888741?aff=oddtdtcreator",
+        image: "ddd-conferences/ddd-north-after-party.jpg",
+      },
+    ],
   },
   {
     id: "ddd-south-west",

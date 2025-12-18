@@ -22,6 +22,15 @@ interface Hotel {
   rating: number;
 }
 
+interface AfterParty {
+  name: string;
+  description: string;
+  location: string;
+  time: string;
+  ticketUrl: string;
+  image: string;
+}
+
 interface SocialLink {
   platform: string;
   handle: string;
@@ -39,6 +48,7 @@ interface Conference {
   images: string[];
   social: SocialLink[];
   hotels: Hotel[];
+  afterParties?: AfterParty[];
 }
 
 interface ConferenceCardProps {
@@ -243,6 +253,69 @@ export function ConferenceCard({ conference }: ConferenceCardProps) {
                     </div>
                   </div>
                 </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* After Parties Section */}
+        {conference.afterParties && conference.afterParties.length > 0 && (
+          <div>
+            <div className="flex items-center mb-4">
+              <span className="text-2xl mr-3">🎉</span>
+              <h3 className="text-xl font-semibold text-gray-900">
+                After Parties
+              </h3>
+            </div>
+            <div className="grid gap-4">
+              {conference.afterParties.map((party, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-100"
+                >
+                  <div className="flex gap-4 mb-3">
+                    <div className="flex-shrink-0 relative w-24 h-24 rounded-lg overflow-hidden">
+                      <Image
+                        src={getCloudinaryUrl(party.image)}
+                        alt={party.name}
+                        fill
+                        sizes="96px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-900 text-lg mb-1">
+                        {party.name}
+                      </h4>
+                      <div className="flex items-center text-sm text-gray-600 mb-1">
+                        <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+                        <span>{party.location}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
+                        <span>{party.time}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-700 mb-3">
+                    {party.description}
+                  </p>
+                  <Button
+                    asChild
+                    variant="default"
+                    size="sm"
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                  >
+                    <a
+                      href={party.ticketUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Get Tickets
+                    </a>
+                  </Button>
+                </div>
               ))}
             </div>
           </div>
